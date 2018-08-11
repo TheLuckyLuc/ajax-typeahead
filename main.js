@@ -26,9 +26,9 @@ input.addEventListener("keyup", function(event) {
         list.innerHTML = "";
 
         for (let i = 0;  i < cities.length; i++) {
-            if (cities[i].city.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if (cities[i].city.substr(0, val.length).toUpperCase() == val.toUpperCase() || cities[i].state.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
                 let listItem = document.createElement("li");
-                listItem.innerHTML = `${cities[i].city}, ${cities[i].state} <span class="population">${cities[i].population}</span>`;
+                listItem.innerHTML = `${cities[i].city.substr(0, val.length)}${cities[i].city.substr(val.length)}, ${cities[i].state.substr(0, val.length)}${cities[i].state.substr(val.length)} <span class="population">${cities[i].population}</span>`;
                 list.appendChild(listItem);
             }
         }
