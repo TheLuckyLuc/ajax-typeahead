@@ -8,6 +8,7 @@ fetch(endpoint).then(response => {
     for (element of data) {
         const city = element.city;
         const population = element.population;
-        cities.push({city: `${city}`, population: `${population}`});
+        const state = element.state;
+        cities.push({city: `${city}`, population: `${population}`, state: `${state}`});
     }
 });
