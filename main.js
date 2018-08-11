@@ -12,3 +12,25 @@ fetch(endpoint).then(response => {
         cities.push({city: `${city}`, population: `${population}`, state: `${state}`});
     }
 });
+
+input.addEventListener("keyup", function(event) {
+    getList(event);
+});
+
+function getList(event) {
+    const search = event.target;
+    const list = document.querySelector(".suggestions");
+
+    if (search.value.length <= 0) {
+        list.innerHTML = "";
+        return;
+    } else {
+        list.innerHTML = "";
+
+        for (city of cities) {
+            let listItem = document.createElement("li");
+            listItem.innerHTML = `${city.city}, ${city.state} <span class="population">${city.population}</span>`;
+            list.appendChild(listItem);
+        }
+    }
+}
